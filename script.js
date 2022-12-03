@@ -56,8 +56,18 @@ function playGame(){
             i--;
         }
         alert("Player score: " + playerScore + ". Computer score: " + computerScore);
+        if (playerScore == 3){
+            alert ("You win the best of 5!");
+            break;
+        }
+        else if (computerScore == 3){
+            alert ("The computer wins the best of 5!");
+            break;
+        }
+        
     }
 }
 
 alert("We'll be playing a game of rock/paper/scissors!")
+
 playGame();
