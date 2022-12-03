@@ -10,28 +10,54 @@ function getPlayerChoice(){
 }
 
 function playRound(playerSelection,computerSelection){
-    alert("We'll be playing a game of rock/paper/scissors!")
+    alert("Computer chose: " + computerSelection + "!");
     if (playerSelection=="rock" && computerSelection=="paper"){
-        return alert("You lose!");
+        alert("You lose! Paper beats Rock!");
+        return "lose";
     }
     else if (playerSelection=="rock" && computerSelection=="scissors"){
-        return alert("You win!");
+        alert("You win! Rock beats Scissors!");
+        return "win";
     }
     else if (playerSelection=="paper" && computerSelection=="rock"){
-        return alert("You win!");
+        alert("You win! Paper beats Rock!");
+        return "win";
     }
     else if (playerSelection=="paper" && computerSelection=="scissors"){
-        return alert("You lose!");
+        alert("You lose! Scissors beats Paper!");
+        return "lose";
     } 
     else if (playerSelection=="scissors" && computerSelection=="rock"){
-        return alert("You lose!");
+        alert("You lose! Rock beats Scissors!");
+        return "lose";
     }
     else if (playerSelection=="scissors" && computerSelection=="paper"){
-        return alert("You win!");
+        alert("You win! Scissors beats Paper!");
+        return "win";
     }   
     else {
-        return alert("Tie!");
+        alert("Tie! Both of you picked " + computerSelection + "!");
+        return "tie";
     }
 }
 
-playRound(getPlayerChoice,getComputerChoice);
+function playGame(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++){
+        result = playRound(getPlayerChoice(),getComputerChoice());
+        if (result == "win"){
+            playerScore++;
+        }
+        else if (result=="lose"){
+            computerScore++;
+        }
+        else{
+            i--;
+        }
+        alert("Player score: " + playerScore + ". Computer score: " + computerScore);
+    }
+}
+
+alert("We'll be playing a game of rock/paper/scissors!")
+playGame();
