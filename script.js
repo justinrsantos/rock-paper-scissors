@@ -44,7 +44,8 @@ function playRound(playerSelection,computerSelection){
 function playGame(){
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++){
+    const numOfRounds = prompt("Please enter number of rounds.")
+    for (let i = 0; i < numOfRounds; i++){
         result = playRound(getPlayerChoice(),getComputerChoice());
         if (result == "win"){
             playerScore++;
@@ -55,7 +56,7 @@ function playGame(){
         else{
             i--;
         }
-        alert("Player score: " + playerScore + ". Computer score: " + computerScore);
+        alert("Round Number: " + i+1 + " of " + numOfRounds + "\nPlayer score: " + playerScore + ". Computer score: " + computerScore);
         if (playerScore == 3){
             alert ("You win the best of 5!");
             break;
@@ -69,5 +70,4 @@ function playGame(){
 }
 
 alert("We'll be playing a game of rock/paper/scissors!")
-
 playGame();
